@@ -11,30 +11,31 @@ echo  Git Pull All - %ROOT%
 echo ============================================
 echo.
 
+echo [workspace]
+git -C "%ROOT%." pull
+if errorlevel 1 echo   ^<^< FAILED
+echo.
+
 set "SUCCESS=0"
 set "FAILED=0"
-set "SKIPPED=0"
 
-for /d %%D in ("%ROOT%*") do (
-    if exist "%%D\.git" (
-        echo [%%~nD]
-        pushd "%%D"
-        git pull 2>&1
+rem 子 repo 清單取自 .gitmodules，不掃目錄，避免把非 submodule 的資料夾當成 repo。
+for /f "usebackq delims=" %%L in (`git -C "%ROOT%." config -f .gitmodules --get-regexp "submodule\..*\.path"`) do (
+    for /f "tokens=1,*" %%A in ("%%L") do (
+        set "SUB=%%B"
+        echo [!SUB!]
+        git -C "%ROOT%!SUB!" pull --ff-only
         if errorlevel 1 (
             set /a FAILED+=1 >nul
             echo   ^<^< FAILED
         ) else (
             set /a SUCCESS+=1 >nul
         )
-        popd
         echo.
-    ) else (
-        echo [%%~nD] ^<skipped - not a git repo^>
-        set /a SKIPPED+=1 >nul
     )
 )
 
 echo ============================================
-echo  Done   Success: %SUCCESS%   Failed: %FAILED%   Skipped: %SKIPPED%
+echo  Done   Success: %SUCCESS%   Failed: %FAILED%
 echo ============================================
 pause
