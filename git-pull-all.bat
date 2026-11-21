@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-setlocal enabledelayedexpansion
+setlocal
 
 set "ROOT=%~dp0"
 if not "%~1"=="" set "ROOT=%~1"
@@ -19,12 +19,11 @@ echo.
 set "SUCCESS=0"
 set "FAILED=0"
 
-rem 子 repo 清單取自 .gitmodules，不掃目錄，避免把非 submodule 的資料夾當成 repo。
+rem Submodule list comes from .gitmodules, not from scanning directories.
 for /f "usebackq delims=" %%L in (`git -C "%ROOT%." config -f .gitmodules --get-regexp "submodule\..*\.path"`) do (
     for /f "tokens=1,*" %%A in ("%%L") do (
-        set "SUB=%%B"
-        echo [!SUB!]
-        git -C "%ROOT%!SUB!" pull --ff-only
+        echo [%%B]
+        git -C "%ROOT%%%B" pull --ff-only
         if errorlevel 1 (
             set /a FAILED+=1 >nul
             echo   ^<^< FAILED
