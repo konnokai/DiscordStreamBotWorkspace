@@ -1,0 +1,7 @@
+# Bot test project
+
+- New xUnit project `DiscordStreamNotifyBot/tests/DiscordStreamNotifyBot.Tests` (net8.0), added to `DiscordStreamNotifyBot.sln` under `tests/` folder. References the Notifier project.
+- Notifier exposes internals to the test project via `InternalsVisibleTo Include="DiscordStreamNotifyBot.Tests"` in `DiscordStreamNotifyBot.Notifier.csproj`; `InteractionHandler.ValidateCommandLocalizationResources` changed from `private` to `internal` so tests can invoke it.
+- `InteractionCommandLocalizationTests.AllRegisteredCommandsHaveDescriptionsInEverySupportedLocale` validates that every registered command and parameter has a description in all three `InteractionCommands.*.resx` (base, en-US, ja). It instantiates `DescriptionOnlyLocalizationManager` and builds the interaction module set, which requires DI for `MainDbService` and other handler dependencies.
+- Test initially failed because `SpiderManagementComponent` dependency `MainDbService` was missing from the service provider; resolved by wiring the required services. Final run: 1 test passed.
+- Purpose: catch missing descriptions before deploy, since the Notifier intentionally fails startup when descriptions are missing. Uncommitted.

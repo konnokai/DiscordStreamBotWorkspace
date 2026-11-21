@@ -1,0 +1,9 @@
+# Bot localization and terminology
+
+- Bot localizes through `BotMessages` and `InteractionCommands` resx in `src/DiscordStreamNotifyBot.Notifier/Localization/Resources` for `zh-TW` (default), `en-US`, and `ja`; resource keys and placeholders must stay identical across all three.
+- Terminology unification (Traditional Chinese): "會限資格/會限驗證/會限頻道/會限影片" -> "會員資格驗證/會員驗證/會員限定頻道/會員限定影片"; the product name "直播小幫手會限確認" stays unchanged. "發送訊息" -> "傳送訊息"; "聯繫" -> "聯絡"; "全球通知頻道" -> "全域通知頻道". Tier -> `層級` (zh-TW), `ティア` (ja), `Tier` (en).
+- Shared/Notifier/Scraper/Coordinator comment, XML doc, exception, and log strings were naturalized; identifiers, control flow, data, and contracts were not changed.
+- Taiwan Chinese terminology and punctuation convention (from 2026-11-07 review): prefer 儲存/取得/使用/新增/回傳/完整/寫入資料庫/更新/處理程序 over 保存/獲取/運行/添加/返回/全量/落庫/刷新/進程; use full-width punctuation in Chinese text and `ID` capitalization in user-facing labels. China-style terms and half-width Chinese punctuation are treated as issues to fix.
+- Command descriptions are part of the command signature in `InteractionHandler`, so changing them triggers Discord command re-registration on startup; canonical names were unchanged.
+- Known consistency issues found 2026-11-07: threshold wording says "必須超過 N 人" while `RequireGuildMemberCountAttribute` uses `>=` (should read "至少 N 人"); Japanese `Help.CommandDetail.youtube.remove` was written as deleting the Discord notification channel instead of removing the YouTube stream notification; crawler terminology mixes "頻道監測" and "頻道檢測爬蟲" and should be unified to "頻道監測". Verify current state before relying on these.
+- Verification 2026-11-07: Release build 0 warnings/errors; localization tests 45/45; command/localization contract tests 52 passed. Uncommitted.
