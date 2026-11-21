@@ -2,6 +2,7 @@
 
 ## architecture
 - [[web-admin-settings-center]] — Cross-repo web admin settings center plan, boundaries, contract
+- [[workspace-meta-repo-submodules]] — Meta-repo submodule workflow, pin updates, and pull-script verification limits
 
 ## backend
 - [[backend-discord-oauth-session]] — Discord OAuth session retains encrypted provider token
