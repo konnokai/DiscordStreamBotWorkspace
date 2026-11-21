@@ -1,0 +1,15 @@
+[submodule "DiscordStreamNotifyBot"]
+	path = DiscordStreamNotifyBot
+	url = https://github.com/konnokai/DiscordStreamNotifyBot.git
+[submodule "DiscordStreamBotBackend"]
+	path = DiscordStreamBotBackend
+	url = https://github.com/konnokai/DiscordStreamBotBackend.git
+[submodule "discord-stream-bot-frontend"]
+	path = discord-stream-bot-frontend
+	url = https://github.com/konnokai/discord-stream-bot-frontend.git
+[submodule "StreamRecordTools"]
+	path = StreamRecordTools
+	url = https://github.com/konnokai/StreamRecordTools.git
+[submodule "YouTubeIssueMonitor"]
+	path = YouTubeIssueMonitor
+	url = https://github.com/konnokai/YouTubeIssueMonitor.git
