@@ -1,6 +1,3 @@
-# 重建得出，不進版控
-.codebase-memory/
-
 # dotnet_with_yt-dlp build.sh 寫入的版本快取
 dotnet_with_yt-dlp/.latestVersion
 
