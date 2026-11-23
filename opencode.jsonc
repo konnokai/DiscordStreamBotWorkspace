@@ -1,0 +1,5 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // 工作區根目錄開 session 時，也要能用 Bot 子 repo 的專案 skill
+  "skills": ["./DiscordStreamNotifyBot/.opencode/skills"],
+}
