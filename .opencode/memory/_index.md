@@ -41,3 +41,4 @@
 ## tooling
 - [[youtube-issue-monitor-input-shape]] — Nested issue fields in YouTube Issue Monitor input.json
 - [[graphify-query-guidance]] — Explicit repository selection and broad-query truncation
+- [[opencode-project-skills]] — Bot skill location and workspace-root discovery configuration
