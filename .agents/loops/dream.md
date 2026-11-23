@@ -1,10 +1,11 @@
 ---
 name: dream
 schedule: 0 3 * * *
-enabled: false
+enabled: true
 model: openai/gpt-6-luna
 timezone: Asia/Taipei
 ---
+
 <!-- opencode-dream:skip -->
 把 `.opencode/memory/sessions/` 消化到空，再把記憶 commit、push。
 這份指示就是 commit 和 push 的授權：留在目前分支，不要開新分支。
