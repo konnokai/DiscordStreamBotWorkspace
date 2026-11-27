@@ -10,6 +10,17 @@
 | 錄影工具 | `StreamRecordTools` |
 | YouTube issue 巡檢工具 | `YouTubeIssueMonitor` |
 
+## 子模組指標同步
+
+子 repo 完成 commit／合併／push 後，回工作區根目錄把子模組指標一起 commit，不要讓 `git status` 留著 modified submodule：
+
+```sh
+git add <子目錄>
+git commit -m "chore(workspace): 更新子 repo 版本"
+```
+
+多個子 repo 一起更新時合成一個 commit。需要推工作區時再 `git push origin master`。
+
 跨專案修改前，先確認共享契約的實際擁有者：
 
 - MySQL schema 與 migration 由 Bot 儲存庫管理。
