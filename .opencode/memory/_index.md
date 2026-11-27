@@ -30,6 +30,8 @@
 - [[bot-youtube-member-authorization]] — YouTube member authorization, Brand Account OAuth pitfalls
 - [[bot-youtube-api-surface]] — Bot YouTube Data API call paths observed in the 2026-11-21 source scan
 - [[bot-youtube-video-page-status]] — YouTube watch-page status classification and cross-repo caller behavior
+- [[youtube-start-notification-fallback]] — API-confirmed YouTube start notices when yt-dlp has no usable formats
+- [[youtube-ytdlp-error-owner-dm]] — Cross-repo yt-dlp no-format alert, owner DM and global 24-hour deduplication
 - [[bot-youtube-websub]] — YouTube WebSub canonical topic URL contract
 - [[bot-youtube-scraper-schedule]] — YouTube /streams ytInitialData parsing and richItemRenderer support
 - [[bot-twitcasting-webhook-setup]] — TwitCasting application settings, Bot credentials, and live-start webhook flow
@@ -42,3 +44,4 @@
 - [[youtube-issue-monitor-input-shape]] — Nested issue fields in YouTube Issue Monitor input.json
 - [[graphify-query-guidance]] — Explicit repository selection and broad-query truncation
 - [[opencode-project-skills]] — Bot skill location and workspace-root discovery configuration
+- [[yt-dlp-youtube-challenge]] — YouTube n-challenge failure cause, yt-dlp fix, and dated StreamRecordTools image update
